@@ -23,15 +23,46 @@ namespace ProjetPrograSys
             }
             return size;
         }
-        static void Main(string[] args)
+
+        public static void Copy(string path, string srcPath)
         {
-            int test = 200;
+            var diSource = new DirectoryInfo(srcPath);
+            var diTarget = new DirectoryInfo(path);
+
+            CopyAll(diSource, diTarget);
+            Console.WriteLine(srcPath+path);
+        }
+
+        public static void CopyAll(DirectoryInfo source, DirectoryInfo target)
+        {
+            Directory.CreateDirectory(target.FullName);
+
+            // Copy each file into the new directory.
+            foreach (FileInfo fi in source.GetFiles())
+            {
+                Console.WriteLine(@"Copying {0}\{1}", target.FullName, fi.Name);
+                fi.CopyTo(Path.Combine(target.FullName, fi.Name), true);
+            }
+
+            // Copy each subdirectory using recursion.
+            foreach (DirectoryInfo diSourceSubDir in source.GetDirectories())
+            {
+                DirectoryInfo nextTargetSubDir =
+                    target.CreateSubdirectory(diSourceSubDir.Name);
+                CopyAll(diSourceSubDir, nextTargetSubDir);
+            }
+        }
+        static void Main(string[] args)
+        {      
             DateTime now = DateTime.Now;
             string dateT = now.ToString("dd MMMM yyyy hh:mm:ss tt");
+
             string path = @"C:\Users\ASUS\Desktop\Backup";
             Console.WriteLine("Entrez le nom de la tâche : ");
+
             string task = Console.ReadLine();
             Console.WriteLine("Veuillez spécifier le chemin");
+            
             string srcPathDir = Console.ReadLine();
             string srcPath = @"C:\Users\ASUS\Desktop\"+srcPathDir;
             Console.WriteLine("Vous avez choisi le chemin : " + srcPath);
@@ -54,9 +85,14 @@ namespace ProjetPrograSys
             Console.WriteLine(strResultJson);
 
             // Write JSON Data in another file
-            //File.WriteAllText(@"C:\Users\ASUS\Desktop\Backup\.json", strResultJson);
+            File.WriteAllText(@"C:\Users\ASUS\Desktop\Backup\logs.json", strResultJson);
 
-            //Logs.StoreData(path, srcPath);
+            // Verify if a Backup directory exist and create it if not
+            Logs.CreateDir(path, srcPath);
+            
+            // Copy files from the source directory to the destination
+            Copy(path, srcPath);
+
             Console.ReadLine();
         }
     }

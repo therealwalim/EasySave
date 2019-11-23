@@ -16,15 +16,11 @@ namespace ProjetPrograSys
         public double DelayTransfer { get; set; }
         public string path { get; set; }
 
-        
 
-        public void StoreData(string path, string srcPath)
+        public void CreateDir(string path, string srcPath)
         {
             // Specify the directory you want to manipulate.
             /*string path = @"C:\Users\ASUS\Desktop\Backup\"*/;
-
-            DirectoryInfo diSource = new DirectoryInfo(path);
-            DirectoryInfo diTarget = new DirectoryInfo(srcPath);
 
             try
             {
@@ -42,11 +38,6 @@ namespace ProjetPrograSys
                 // Delete the directory.
                 //di.Delete();
                 //Console.WriteLine("The directory was deleted successfully.");
-
-                //CopyFiles of the directory
-                
-
-
             }
             catch (Exception e)
             {
