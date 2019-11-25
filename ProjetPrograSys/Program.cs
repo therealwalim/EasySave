@@ -71,7 +71,7 @@ namespace ProjetPrograSys
                 TaskName = task,
                 SrcAddress = srcPath,
                 DstAddress = path,
-                FileSize = DirSize(new DirectoryInfo(path)),
+                FileSize = DirSize(new DirectoryInfo(srcPath)),
                 DelayTransfer = ts.Milliseconds,
             };
 
@@ -84,6 +84,7 @@ namespace ProjetPrograSys
             // Write JSON Data in another file
             File.WriteAllText(@"C:\Users\ASUS\Desktop\Backup\logs\log.json", strResultJson);
             
+            // End
             Console.WriteLine("JSON Object generated !");
 
 
