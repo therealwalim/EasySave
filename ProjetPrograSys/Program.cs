@@ -2,12 +2,12 @@
 using System;
 using System.IO;
 using System.Diagnostics;
+using System.Text;
 
 namespace ProjetPrograSys
 {
     class Program
     {
-        delegate long MyDelegate(long size);
         public static long DirSize(DirectoryInfo d)
         {
             long size = 0;
@@ -40,9 +40,9 @@ namespace ProjetPrograSys
             // Catch the source file
             string task = Console.ReadLine();
             Console.WriteLine("Specify the path : ");
-            
+
             string srcPathDir = Console.ReadLine();
-            string srcPath = @"C:\Users\ASUS\Desktop\"+srcPathDir;
+            string srcPath = @"C:\Users\ASUS\Desktop\" + srcPathDir;
             Console.WriteLine("You choosed this path : " + srcPath);
 
             StoreLogs Logs = new StoreLogs();
@@ -52,11 +52,23 @@ namespace ProjetPrograSys
 
             // Create a stopWatch object
             Stopwatch stopWatch = new Stopwatch();
-           
+
             // Start the countdown
             stopWatch.Start();
-                // Copy files from the source directory to the destination
-                Logs.Copy(path, srcPath);
+            // Copy files from the source directory to the destination
+
+
+            //Console.Write("Performing some task... ");
+            //using (var progress = new ProgressBar())
+            //{
+            //    for (int i = 0; i <= 100; i++)
+            //    {
+            //        progress.Report((double)i / 100);
+            //        Logs.Copy(path, srcPath);
+            //    }
+            //}
+            //Console.WriteLine("Done.");
+
             // Stop the countdown
             stopWatch.Stop();
 
@@ -82,8 +94,34 @@ namespace ProjetPrograSys
             // Console.WriteLine(strResultJson);
 
             // Write JSON Data in another file
-            File.WriteAllText(@"C:\Users\ASUS\Desktop\Backup\logs\log.json", strResultJson);
+
+            string MyJSON = null;
+            string strPath = @"C:\Users\ASUS\Desktop\Backup\logs\log.json";
             
+
+
+            if (File.Exists(strPath))
+            {
+                FileStream fs = new FileStream(strPath, FileMode.Open, FileAccess.ReadWrite);
+                fs.SetLength(fs.Length - 1);
+                fs.Close();
+
+                MyJSON = "," + strResultJson;
+                File.AppendAllText(strPath, MyJSON + "]");
+                Console.WriteLine("The file exists.");
+            }
+            else if (!File.Exists(strPath))
+            {
+                MyJSON = "[" + strResultJson + "]";
+                File.WriteAllText(strPath, MyJSON);
+                Console.WriteLine("The file doesn't exists.");
+            }
+            else
+            {
+                Console.WriteLine("Error");
+            }
+
+
             // End
             Console.WriteLine("JSON Object generated !");
 
