@@ -64,7 +64,7 @@ namespace ProjetPrograSys
             //    for (int i = 0; i <= 100; i++)
             //    {
             //        progress.Report((double)i / 100);
-            //        Logs.Copy(path, srcPath);
+            Logs.Copy(path, srcPath);
             //    }
             //}
             //Console.WriteLine("Done.");
@@ -97,33 +97,9 @@ namespace ProjetPrograSys
 
             string MyJSON = null;
             string strPath = @"C:\Users\ASUS\Desktop\Backup\logs\log.json";
-            
 
-
-            if (File.Exists(strPath))
-            {
-                FileStream fs = new FileStream(strPath, FileMode.Open, FileAccess.ReadWrite);
-                fs.SetLength(fs.Length - 1);
-                fs.Close();
-
-                MyJSON = "," + strResultJson;
-                File.AppendAllText(strPath, MyJSON + "]");
-                Console.WriteLine("The file exists.");
-            }
-            else if (!File.Exists(strPath))
-            {
-                MyJSON = "[" + strResultJson + "]";
-                File.WriteAllText(strPath, MyJSON);
-                Console.WriteLine("The file doesn't exists.");
-            }
-            else
-            {
-                Console.WriteLine("Error");
-            }
-
-
-            // End
-            Console.WriteLine("JSON Object generated !");
+            // Store to the right JSON FORMAT
+            Logs.StoreJSON(strPath,MyJSON,strResultJson);
 
 
             Console.ReadLine();

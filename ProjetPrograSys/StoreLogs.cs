@@ -45,6 +45,33 @@ namespace ProjetPrograSys
             }
         }
 
+        public void StoreJSON(string strPath, string MyJSON, string strResultJson)
+        {
+            if (File.Exists(strPath))
+            {
+                FileStream fs = new FileStream(strPath, FileMode.Open, FileAccess.ReadWrite);
+                fs.SetLength(fs.Length - 1);
+                fs.Close();
+
+                MyJSON = "," + strResultJson;
+                File.AppendAllText(strPath, MyJSON + "]");
+                Console.WriteLine("The file exists.");
+            }
+            else if (!File.Exists(strPath))
+            {
+                MyJSON = "[" + strResultJson + "]";
+                File.WriteAllText(strPath, MyJSON);
+                Console.WriteLine("The file doesn't exists.");
+            }
+            else
+            {
+                Console.WriteLine("Error");
+            }
+
+            // End
+            Console.WriteLine("JSON Object generated !");
+        }
+
         public void CreateDir(string path, string srcPath)
         {
             // Specify the directory you want to manipulate.
