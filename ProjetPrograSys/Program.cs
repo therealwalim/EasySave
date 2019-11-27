@@ -2,7 +2,6 @@
 using System;
 using System.IO;
 using System.Diagnostics;
-using System.Text;
 
 namespace ProjetPrograSys
 {
@@ -27,6 +26,8 @@ namespace ProjetPrograSys
         }
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+
             Console.WriteLine("Enter the work ID : ");
             string ID = Console.ReadLine();
 
@@ -45,6 +46,7 @@ namespace ProjetPrograSys
             string srcPath = @"C:\Users\ASUS\Desktop\" + srcPathDir;
             Console.WriteLine("You choosed this path : " + srcPath);
 
+            // Object creation
             StoreLogs Logs = new StoreLogs();
 
             // Verify if a Backup directory exist and create it if not
@@ -57,14 +59,14 @@ namespace ProjetPrograSys
             stopWatch.Start();
             // Copy files from the source directory to the destination
 
-
+            // Progress bar
             //Console.Write("Performing some task... ");
             //using (var progress = new ProgressBar())
             //{
             //    for (int i = 0; i <= 100; i++)
             //    {
             //        progress.Report((double)i / 100);
-            Logs.Copy(path, srcPath);
+            Logs.Copy(path, srcPath); // Copy function
             //    }
             //}
             //Console.WriteLine("Done.");
@@ -101,6 +103,8 @@ namespace ProjetPrograSys
             // Store to the right JSON FORMAT
             Logs.StoreJSON(strPath,MyJSON,strResultJson);
 
+            // Read JSON
+            //Logs.ReadJSON(strPath);
 
             Console.ReadLine();
         }

@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace ProjetPrograSys
 {
@@ -17,6 +16,7 @@ namespace ProjetPrograSys
         // public string path { get; set; }
 
 
+        // Copy function
         public void Copy(string path, string srcPath)
         {
             var diSource = new DirectoryInfo(srcPath);
@@ -25,6 +25,7 @@ namespace ProjetPrograSys
             CopyAll(diSource, diTarget);
         }
 
+        // Function to Copy All Files
         public void CopyAll(DirectoryInfo source, DirectoryInfo target)
         {
             Directory.CreateDirectory(target.FullName);
@@ -45,6 +46,7 @@ namespace ProjetPrograSys
             }
         }
 
+        // Store JSON Objects
         public void StoreJSON(string strPath, string MyJSON, string strResultJson)
         {
             if (File.Exists(strPath))
@@ -72,6 +74,18 @@ namespace ProjetPrograSys
             Console.WriteLine("JSON Object generated !");
         }
 
+        // Function to read JSON
+        public void ReadJSON(string strPath)
+        {
+            dynamic l = JsonConvert.DeserializeObject<dynamic>(File.ReadAllText(strPath));
+
+            foreach (var o in l)
+            {
+                Console.WriteLine(o);
+            }
+        }
+
+        // Method to create the backup directory
         public void CreateDir(string path, string srcPath)
         {
             // Specify the directory you want to manipulate.
