@@ -28,84 +28,83 @@ namespace ProjetPrograSys
         {
             Console.ForegroundColor = ConsoleColor.Blue;
 
-            //Console.WriteLine("Enter the work ID : ");
-            //string ID = Console.ReadLine();
+            Console.WriteLine("Enter the work ID : ");
+            string ID = Console.ReadLine();
 
-            //// Create a DateTime object to catch the time
-            //DateTime now = DateTime.Now;
-            //string dateT = now.ToString("dd MMMM yyyy hh:mm:ss tt");
+            // Create a DateTime object to catch the time
+            DateTime now = DateTime.Now;
+            string dateT = now.ToString("dd MMMM yyyy hh:mm:ss tt");
 
-            //string path = @"C:\Users\ASUS\Desktop\Backup";
-            //Console.WriteLine("Enter the name of the task : ");
+            string path = @"C:\Users\ASUS\Desktop\Backup";
+            Console.WriteLine("Enter the name of the task : ");
 
-            //// Catch the source file
-            //string task = Console.ReadLine();
-            //Console.WriteLine("Specify the path : ");
+            // Catch the source file
+            string task = Console.ReadLine();
+            Console.WriteLine("Specify the path : ");
 
-            //string srcPathDir = Console.ReadLine();
-            //string srcPath = @"C:\Users\ASUS\Desktop\" + srcPathDir;
-            //Console.WriteLine("You choosed this path : " + srcPath);
+            string srcPathDir = Console.ReadLine();
+            string srcPath = @"C:\Users\ASUS\Desktop\" + srcPathDir;
+            Console.WriteLine("You choosed this path : " + srcPath);
 
-            //// Object creation
-            //StoreLogs Logs = new StoreLogs();
+            // Object creation
+            StoreLogs Logs = new StoreLogs();
 
-            //// Verify if a Backup directory exist and create it if not
-            //Logs.CreateDir(path, srcPath);
+            // Verify if a Backup directory exist and create it if not
+            Logs.CreateDir(path, srcPath);
 
-            //// Create a stopWatch object
-            //Stopwatch stopWatch = new Stopwatch();
+            // Create a stopWatch object
+            Stopwatch stopWatch = new Stopwatch();
 
-            //// Start the countdown
-            //stopWatch.Start();
-            //// Copy files from the source directory to the destination
+            // Start the countdown
+            stopWatch.Start();
+            // Copy files from the source directory to the destination
 
-            //// Progress bar
-            ////Console.Write("Performing some task... ");
-            ////using (var progress = new ProgressBar())
-            ////{
-            ////    for (int i = 0; i <= 100; i++)
-            ////    {
-            ////        progress.Report((double)i / 100);
-            //Logs.Copy(path, srcPath); // Copy function
-            ////    }
-            ////}
-            ////Console.WriteLine("Done.");
-
-            //// Stop the countdown
-            //stopWatch.Stop();
-
-            //// Get the elapsed time as a TimeSpan value.
-            //TimeSpan ts = stopWatch.Elapsed;
-
-            //// Create an object and store properties
-            //StoreLogs Log = new StoreLogs()
+            // Progress bar
+            //Console.Write("Performing some task... ");
+            //using (var progress = new ProgressBar())
             //{
-            //    Id = ID,
-            //    DateTime = dateT,
-            //    TaskName = task,
-            //    SrcAddress = srcPath,
-            //    DstAddress = path,
-            //    FileSize = DirSize(new DirectoryInfo(srcPath)),
-            //    DelayTransfer = ts.Milliseconds,
-            //};
+            //    for (int i = 0; i <= 100; i++)
+            //    {
+            //        progress.Report((double)i / 100);
+            Logs.Copy(path, srcPath); // Copy function
+            //    }
+            //}
+            //Console.WriteLine("Done.");
 
-            //// Record JSON data in the variable
-            //string strResultJson = JsonConvert.SerializeObject(Log);
+            // Stop the countdown
+            stopWatch.Stop();
 
-            //// Show the JSON Data
-            //// Console.WriteLine(strResultJson);
+            // Get the elapsed time as a TimeSpan value.
+            TimeSpan ts = stopWatch.Elapsed;
 
-            //// Write JSON Data in another file
+            // Create an object and store properties
+            StoreLogs Log = new StoreLogs()
+            {
+                Id = ID,
+                DateTime = dateT,
+                TaskName = task,
+                SrcAddress = srcPath,
+                DstAddress = path,
+                FileSize = DirSize(new DirectoryInfo(srcPath)),
+                DelayTransfer = ts.Milliseconds,
+            };
 
-            //string MyJSON = null;
-            //string strPath = @"C:\Users\ASUS\Desktop\Backup\logs\log.json";
+            // Record JSON data in the variable
+            string strResultJson = JsonConvert.SerializeObject(Log);
 
-            //// Store to the right JSON FORMAT
-            //Logs.StoreJSON(strPath,MyJSON,strResultJson);
+            // Show the JSON Data
+            // Console.WriteLine(strResultJson);
 
-            //// Read JSON
-            ////Logs.ReadJSON(strPath);
-            ///
+            // Write JSON Data in another file
+
+            string MyJSON = null;
+            string strPath = @"C:\Users\ASUS\Desktop\Backup\logs\log.json";
+
+            // Store to the right JSON FORMAT
+            Logs.StoreJSON(strPath, MyJSON, strResultJson);
+
+            // Read JSON
+            //Logs.ReadJSON(strPath);
 
             Launcher display = new Launcher();
             
