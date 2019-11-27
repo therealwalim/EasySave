@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProjetPrograSys</name>
+    </assembly>
+    <members>
+        <member name="T:ProgressBar">
+            <summary>
+            An ASCII progress bar
+            </summary>
+        </member>
+    </members>
+</doc>
