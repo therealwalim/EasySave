@@ -16,6 +16,24 @@ namespace ProjetPrograSys
         // public string path { get; set; }
 
 
+        public long DirSize(DirectoryInfo strPath)
+        {
+            long size = 0;
+            // Add file sizes.
+            FileInfo[] fis = d.GetFiles();
+            foreach (FileInfo fi in fis)
+            {
+                size += fi.Length;
+            }
+            // Add subdirectory sizes.
+            DirectoryInfo[] dis = d.GetDirectories();
+            foreach (DirectoryInfo di in dis)
+            {
+                size += DirSize(di);
+            }
+            return size;
+        }
+
         // Copy function
         public void Copy(string path, string srcPath)
         {

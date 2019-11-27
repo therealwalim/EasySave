@@ -7,23 +7,6 @@ namespace ProjetPrograSys
 {
     class Program
     {
-        public static long DirSize(DirectoryInfo d)
-        {
-            long size = 0;
-            // Add file sizes.
-            FileInfo[] fis = d.GetFiles();
-            foreach (FileInfo fi in fis)
-            {
-                size += fi.Length;
-            }
-            // Add subdirectory sizes.
-            DirectoryInfo[] dis = d.GetDirectories();
-            foreach (DirectoryInfo di in dis)
-            {
-                size += DirSize(di);
-            }
-            return size;
-        }
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Blue;
@@ -46,8 +29,12 @@ namespace ProjetPrograSys
             string srcPath = @"C:\Users\ASUS\Desktop\" + srcPathDir;
             Console.WriteLine("You choosed this path : " + srcPath);
 
+
             // Object creation
             StoreLogs Logs = new StoreLogs();
+
+            // Calculate the size of the source path
+            long size = Logs.DirSize(new DirectoryInfo(srcPath));
 
             // Verify if a Backup directory exist and create it if not
             Logs.CreateDir(path, srcPath);
@@ -85,7 +72,7 @@ namespace ProjetPrograSys
                 TaskName = task,
                 SrcAddress = srcPath,
                 DstAddress = path,
-                FileSize = DirSize(new DirectoryInfo(srcPath)),
+                FileSize = size,
                 DelayTransfer = ts.Milliseconds,
             };
 
@@ -109,7 +96,7 @@ namespace ProjetPrograSys
             Launcher display = new Launcher();
             
             // Start the application
-            display.starter();
+            //display.starter();
 
             Console.ReadLine();
         }
