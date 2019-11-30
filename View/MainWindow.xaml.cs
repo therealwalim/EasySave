@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using Microsoft.Win32;
+using System.Windows.Forms;
 
 namespace View
 {
@@ -27,7 +30,30 @@ namespace View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"Hello {thename.Text}");
+            try
+            {
+                Close();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message);
+            }
         }
+
+        private void btnOpenFile_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                FolderBrowserDialog fbd = new FolderBrowserDialog();
+                fbd.RootFolder = Environment.SpecialFolder.Desktop;
+                fbd.Description = "Select a folder";
+                fbd.ShowNewFolderButton = false;
+                srcPath.Text = "success";
+            }catch(Exception exception)
+            {
+                System.Windows.MessageBox.Show(exception.Message);
+            }
+        }
+
     }
 }

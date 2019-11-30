@@ -13,19 +13,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="EasySave" Height="484.848" Width="690.909">
+        Title="EasySave" Height="484.848" Width="690.909"
+    WindowStyle="None"
+    AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip">
 
-    <Grid>
-        <materialDesign:ColorZone Mode="PrimaryDark" Padding="20">
-            <StackPanel Height="200">
-                <Image Source=""></Image>
-                <TextBlock Text="EasySave" FontSize="24" TextAlignment="Center">
-                </TextBlock>
-                <TextBox Width="150" x:Name="thename"></TextBox>
-                <Button Margin="0,20,0,20" Width="100" Click="Button_Click">Test</Button>
-            </StackPanel>
-        </materialDesign:ColorZone>
-    </Grid>
+    <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
+        <materialDesign:DrawerHost.LeftDrawerContent>
+            <DockPanel MinWidth="212">
+                <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
+                              DockPanel.Dock="Top"
+                              HorizontalAlignment="Right" Margin="16"
+                              IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
+                <Menu>
+                    <Menu.Resources>
+                        <Style TargetType="MenuItem" BasedOn="{StaticResource {x:Type MenuItem}}">
+
+                        </Style>
+                    </Menu.Resources>
+                    <Menu.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </Menu.ItemsPanel>
+                    <MenuItem Header="Save">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="ContentSave" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="CryptoSoft">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="Lock" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </Menu>
+            </DockPanel>
+        </materialDesign:DrawerHost.LeftDrawerContent>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <materialDesign:ColorZone Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth2"
+                                      Mode="PrimaryMid" DockPanel.Dock="Top" Background="#FF14BDE2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="34*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False"
+                                  x:Name="MenuToggleButton" Grid.Column="0" Grid.RowSpan="2"/>
+                    <Image Source="C:\Users\ASUS\Desktop\1x\logo.png" Grid.RowSpan="2" Grid.Column="1" Margin="245,-27,280,-29" UseLayoutRounding="True" SnapsToDevicePixels="True" ></Image>
+                    <Button Content="{materialDesign:PackIcon Close}" HorizontalAlignment="Right" RenderTransformOrigin="15.494,0.531" Margin="0,2,0,3" Width="47" Grid.Column="1" Background="#FFE74C3C" BorderBrush="#FFE74C3C" Click="Button_Click" Grid.RowSpan="2"></Button>
+                </Grid>
+            </materialDesign:ColorZone>
+            <Grid HorizontalAlignment="Left" Height="416" Grid.Row="1" VerticalAlignment="Top" Width="691">
+                <Label Content="Task name : " HorizontalAlignment="Left" Margin="109,119,0,0" VerticalAlignment="Top" FontSize="14"/>
+                <TextBox x:Name="taskName" HorizontalAlignment="Left" Height="23" Margin="230,121,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="246" CaretBrush="#FF14BDE2" SelectionBrush="#FF14BDE2"/>
+                <Label Content="Source folder : " HorizontalAlignment="Left" Margin="109,159,0,0" VerticalAlignment="Top" FontSize="14"/>
+                <TextBox x:Name="srcPath" HorizontalAlignment="Left" Height="23" Margin="230,161,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="246" CaretBrush="#FF14BDE2" IsEnabled="False"/>
+                <Button x:Name="btnOpenFile" Click="btnOpenFile_Click" Margin="496,164,114,227" Height="Auto" Background="#FF14BDE2" BorderBrush="#FF14BDE2">Browse</Button>
+                <Label Content="Backup type : " HorizontalAlignment="Left" Margin="109,203,0,0" VerticalAlignment="Top" FontSize="14"/>
+                <RadioButton Content="Differential" HorizontalAlignment="Left" Margin="228,207,0,0" VerticalAlignment="Top" Background="#FF14BDE2" BorderBrush="#FF14BDE2"/>
+                <RadioButton Content="Mirror" HorizontalAlignment="Left" Margin="346,207,0,0" VerticalAlignment="Top" Background="#FF14BDE2" BorderBrush="#FF14BDE2"/>
+                <Button Content="Submit" HorizontalAlignment="Left" Margin="230,278,0,0" VerticalAlignment="Top" Width="246" Background="#FF14BDE2" BorderBrush="#FF14BDE2"/>
+            </Grid>
+        </Grid>
+    </materialDesign:DrawerHost>
 
 
 
