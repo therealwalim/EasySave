@@ -69,15 +69,15 @@
                     </Grid.ColumnDefinitions>
                     <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False"
                                   x:Name="MenuToggleButton" Grid.Column="0" Grid.RowSpan="2"/>
-                    <Image Source="C:\Users\ASUS\Desktop\1x\logo.png" Grid.RowSpan="2" Grid.Column="1" Margin="245,-27,280,-29" UseLayoutRounding="True" SnapsToDevicePixels="True" ></Image>
+                    <Image Source="C:\Users\ASUS\Desktop\C# Repository\EasySave\assets\logo.png" Grid.RowSpan="2" Grid.Column="1" Margin="245,-27,280,-29" UseLayoutRounding="True" SnapsToDevicePixels="True" ></Image>
                     <Button Content="{materialDesign:PackIcon Close}" HorizontalAlignment="Right" RenderTransformOrigin="15.494,0.531" Margin="0,2,0,3" Width="47" Grid.Column="1" Background="#FFE74C3C" BorderBrush="#FFE74C3C" Click="Button_Click" Grid.RowSpan="2"></Button>
                 </Grid>
             </materialDesign:ColorZone>
             <Grid HorizontalAlignment="Left" Height="416" Grid.Row="1" VerticalAlignment="Top" Width="691">
                 <Label Content="Task name : " HorizontalAlignment="Left" Margin="109,119,0,0" VerticalAlignment="Top" FontSize="14"/>
-                <TextBox x:Name="taskName" HorizontalAlignment="Left" Height="23" Margin="230,121,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="246" CaretBrush="#FF14BDE2" SelectionBrush="#FF14BDE2"/>
+                <TextBox x:Name="taskName" HorizontalAlignment="Left" Height="23" Margin="230,121,0,0" TextWrapping="Wrap" Text="Enter task name" VerticalAlignment="Top" Width="246" CaretBrush="#FF14BDE2" SelectionBrush="#FF14BDE2"/>
                 <Label Content="Source folder : " HorizontalAlignment="Left" Margin="109,159,0,0" VerticalAlignment="Top" FontSize="14"/>
-                <TextBox x:Name="srcPath" HorizontalAlignment="Left" Height="23" Margin="230,161,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="246" CaretBrush="#FF14BDE2" IsEnabled="False"/>
+                <TextBox x:Name="srcPath" HorizontalAlignment="Left" Height="23" Margin="230,161,0,0" TextWrapping="Wrap" Text="Source path" VerticalAlignment="Top" Width="246" CaretBrush="#FF14BDE2" IsEnabled="False"/>
                 <Button x:Name="btnOpenFile" Click="btnOpenFile_Click" Margin="496,164,114,227" Height="Auto" Background="#FF14BDE2" BorderBrush="#FF14BDE2">Browse</Button>
                 <Label Content="Backup type : " HorizontalAlignment="Left" Margin="109,203,0,0" VerticalAlignment="Top" FontSize="14"/>
                 <RadioButton Content="Differential" HorizontalAlignment="Left" Margin="228,207,0,0" VerticalAlignment="Top" Background="#FF14BDE2" BorderBrush="#FF14BDE2"/>

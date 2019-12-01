@@ -42,17 +42,10 @@ namespace View
 
         private void btnOpenFile_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                FolderBrowserDialog fbd = new FolderBrowserDialog();
-                fbd.RootFolder = Environment.SpecialFolder.Desktop;
-                fbd.Description = "Select a folder";
-                fbd.ShowNewFolderButton = false;
-                srcPath.Text = "success";
-            }catch(Exception exception)
-            {
-                System.Windows.MessageBox.Show(exception.Message);
-            }
+            var dialog = new System.Windows.Forms.FolderBrowserDialog();
+            System.Windows.Forms.DialogResult result = dialog.ShowDialog();
+            srcPath.Text = dialog.SelectedPath;
+
         }
 
     }
