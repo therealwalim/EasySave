@@ -16,7 +16,7 @@
         Title="EasySave" Height="484.848" Width="690.909"
     WindowStyle="None"
     AllowsTransparency="True"
-        ResizeMode="CanResizeWithGrip">
+        MouseDown="Window_MouseDown">
 
     <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
         <materialDesign:DrawerHost.LeftDrawerContent>
@@ -75,7 +75,7 @@
             </materialDesign:ColorZone>
             <Grid HorizontalAlignment="Left" Height="416" Grid.Row="1" VerticalAlignment="Top" Width="691">
                 <Label Content="Task name : " HorizontalAlignment="Left" Margin="109,119,0,0" VerticalAlignment="Top" FontSize="14"/>
-                <TextBox x:Name="taskName" HorizontalAlignment="Left" Height="23" Margin="230,121,0,0" TextWrapping="Wrap" Text="Enter task name" VerticalAlignment="Top" Width="246" CaretBrush="#FF14BDE2" SelectionBrush="#FF14BDE2"/>
+                <TextBox x:Name="taskName" HorizontalAlignment="Left" Height="23" Margin="230,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" CaretBrush="#FF14BDE2" SelectionBrush="#FF14BDE2"/>
                 <Label Content="Source folder : " HorizontalAlignment="Left" Margin="109,159,0,0" VerticalAlignment="Top" FontSize="14"/>
                 <TextBox x:Name="srcPath" HorizontalAlignment="Left" Height="23" Margin="230,161,0,0" TextWrapping="Wrap" Text="Source path" VerticalAlignment="Top" Width="246" CaretBrush="#FF14BDE2" IsEnabled="False"/>
                 <Button x:Name="btnOpenFile" Click="btnOpenFile_Click" Margin="496,164,114,227" Height="Auto" Background="#FF14BDE2" BorderBrush="#FF14BDE2">Browse</Button>
