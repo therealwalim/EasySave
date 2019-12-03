@@ -114,7 +114,7 @@ namespace CryptoSoft
         // Encrypt using XOR
         public void Encrypt(string sourcePath, string destinationPath, string mode, int key)
         {
-            ArrayList inputArray = new ArrayList(); //
+            ArrayList inputArray = new ArrayList();
             ArrayList outputArray = new ArrayList();
 
             using (FileStream fs = new FileStream(sourcePath, FileMode.Open, FileAccess.Read))
