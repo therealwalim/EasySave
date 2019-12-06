@@ -12,6 +12,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
+        Icon="C:\Users\ASUS\Desktop\C# Repository\EasySave\View\logo.png"
         mc:Ignorable="d"
         Title="EasySave" Height="484.848" Width="690.909"
     WindowStyle="None"
