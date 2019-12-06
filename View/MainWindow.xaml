@@ -40,11 +40,16 @@
                         <MenuItem.Icon>
                             <materialDesign:PackIcon Kind="ContentSave" />
                         </MenuItem.Icon>
+                        <MenuItem Header="Add a new save task" Click="addnewtask_Click"></MenuItem>
+                        <MenuItem Header="Launch a specific save task" Click="launchtask_Click"></MenuItem>
+                        <MenuItem Header="Launch a sequence of save tasks" Click="MenuItem_Click"></MenuItem>
+                        <MenuItem Header="Consult save tasks list" Click="MenuItem_Click_1"></MenuItem>
                     </MenuItem>
                     <MenuItem Header="CryptoSoft">
                         <MenuItem.Icon>
                             <materialDesign:PackIcon Kind="Lock" />
                         </MenuItem.Icon>
+                        <MenuItem Header="Encrypt a file" Click="MenuItem_Click_2"></MenuItem>
                     </MenuItem>
                 </Menu>
             </DockPanel>
@@ -73,17 +78,9 @@
                     <Button Content="{materialDesign:PackIcon Close}" HorizontalAlignment="Right" RenderTransformOrigin="15.494,0.531" Margin="0,2,0,3" Width="47" Grid.Column="1" Background="#FFE74C3C" BorderBrush="#FFE74C3C" Click="Button_Click" Grid.RowSpan="2"></Button>
                 </Grid>
             </materialDesign:ColorZone>
-            <Grid HorizontalAlignment="Left" Height="416" Grid.Row="1" VerticalAlignment="Top" Width="691">
-                <Label Content="Task name : " HorizontalAlignment="Left" Margin="109,119,0,0" VerticalAlignment="Top" FontSize="14"/>
-                <TextBox x:Name="taskName" HorizontalAlignment="Left" Height="23" Margin="230,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="246" CaretBrush="#FF14BDE2" SelectionBrush="#FF14BDE2"/>
-                <Label Content="Source folder : " HorizontalAlignment="Left" Margin="109,159,0,0" VerticalAlignment="Top" FontSize="14"/>
-                <TextBox x:Name="srcPath" HorizontalAlignment="Left" Height="23" Margin="230,161,0,0" TextWrapping="Wrap" Text="Source path" VerticalAlignment="Top" Width="246" CaretBrush="#FF14BDE2" IsEnabled="False"/>
-                <Button x:Name="btnOpenFile" Click="btnOpenFile_Click" Margin="496,164,114,227" Height="Auto" Background="#FF14BDE2" BorderBrush="#FF14BDE2">Browse</Button>
-                <Label Content="Backup type : " HorizontalAlignment="Left" Margin="109,203,0,0" VerticalAlignment="Top" FontSize="14"/>
-                <RadioButton Content="Differential" HorizontalAlignment="Left" Margin="228,207,0,0" VerticalAlignment="Top" Background="#FF14BDE2" BorderBrush="#FF14BDE2"/>
-                <RadioButton Content="Mirror" HorizontalAlignment="Left" Margin="346,207,0,0" VerticalAlignment="Top" Background="#FF14BDE2" BorderBrush="#FF14BDE2"/>
-                <Button Content="Submit" HorizontalAlignment="Left" Margin="230,278,0,0" VerticalAlignment="Top" Width="246" Background="#FF14BDE2" BorderBrush="#FF14BDE2"/>
-            </Grid>
+
+            <Frame x:Name="Main" Grid.Row="1" NavigationUIVisibility="Hidden" Margin="-54,0,-41,84"/>
+            <Frame x:Name="Progress" Margin="0,337,0,0" Grid.Row="1"/>
         </Grid>
     </materialDesign:DrawerHost>
 

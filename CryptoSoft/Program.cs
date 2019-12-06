@@ -9,8 +9,8 @@
  * 
  * λ CryptoSoft.exe [0] [1] [2] [3]
  * 
- * [0] : "Source"
- * [1] : Source path
+ * [0] : "source"
+ * [1] : source path
  * [2] : "Destination"
  * [3] : Destination path
  * 

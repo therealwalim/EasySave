@@ -26,6 +26,8 @@ namespace View
         public MainWindow()
         {
             InitializeComponent();
+            Main.Content = new welcome();
+            Progress.Content = new progress();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,13 +42,13 @@ namespace View
             }
         }
 
-        private void btnOpenFile_Click(object sender, RoutedEventArgs e)
-        {
-            var dialog = new System.Windows.Forms.FolderBrowserDialog();
-            System.Windows.Forms.DialogResult result = dialog.ShowDialog();
-            srcPath.Text = dialog.SelectedPath;
+        //private void btnOpenFile_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var dialog = new System.Windows.Forms.FolderBrowserDialog();
+        //    System.Windows.Forms.DialogResult result = dialog.ShowDialog();
+        //    srcPath.Text = dialog.SelectedPath;
 
-        }
+        //}
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -54,6 +56,30 @@ namespace View
             {
                 this.DragMove();
             }
+        }
+
+        private void addnewtask_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new addnewtask();
+        }
+        private void launchtask_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new specifictask();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new specifictask();
+        }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new displaytasklist();
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new encrypt();
         }
     }
 }

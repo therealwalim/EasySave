@@ -1,0 +1,47 @@
+﻿<Page x:Class="View.addnewtask"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Add new save task">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="180" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Label Grid.Column="3" Grid.Row="1" HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold">Add new save task</Label>
+        <Label Grid.Column="1" Grid.Row="2" Margin="0,19,0,5">Enter a task name :</Label>
+        <Label Grid.Column="1" Grid.Row="3" Padding="0,10" Grid.ColumnSpan="2" Margin="3,1,17,49" Grid.RowSpan="2">Choose a save type :</Label>
+        <Label Grid.Column="1" Grid.Row="4" Margin="0,19,0,5">Enter a directory source path :</Label>
+        <Label Grid.Column="1" Grid.Row="5" Margin="0,19,0,5">Enter a directory source path :</Label>
+        <TextBox Grid.Column="3" Margin="0,0,10,10" Text="lol" CaretBrush="#FF14BDE2" SelectionBrush="#FF14BDE2" Foreground="White" Grid.Row="2"/>
+        <TextBox x:Name="srcPath" Grid.Column="3" Margin="0,0,10,10" Text="lol" CaretBrush="#FF14BDE2" SelectionBrush="#FF14BDE2" Foreground="White" Grid.Row="4" IsEnabled="False"/>
+        <TextBox x:Name="dstPath" Grid.Column="3" Margin="0,0,10,10" Text="lol" CaretBrush="#FF14BDE2" SelectionBrush="#FF14BDE2" Foreground="White" Grid.Row="5" IsEnabled="False"/>
+        <Button Grid.Column="5" Grid.Row="4" Height="Auto" Margin="0,19,0,5" FontSize="12" FontWeight="Normal" Click="Button_Click">Browse</Button>
+        <Button Grid.Column="5" Grid.Row="5" Height="Auto" Margin="0,19,0,5" FontSize="12" FontWeight="Normal" Click="Button_Click_1">Browse</Button>
+        <Button Grid.Column="3" Grid.Row="6" Margin="0,18,0,0">Submit</Button>
+        <StackPanel Grid.Column="3" Grid.Row="3" Orientation="Horizontal" Margin="0,10,0,40" Grid.RowSpan="2">
+            <RadioButton Foreground="White" Margin="0,0,0,21">Mirror</RadioButton>
+            <RadioButton Foreground="White" Margin="20,0,0,21" Content="Differential" RenderTransformOrigin="0.788,0.842"/>
+        </StackPanel>
+    </Grid>
+</Page>

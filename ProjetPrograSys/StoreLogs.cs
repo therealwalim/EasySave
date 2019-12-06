@@ -70,16 +70,16 @@ namespace ProjetPrograSys
             if (File.Exists(strPath))
             {
                 FileStream fs = new FileStream(strPath, FileMode.Open, FileAccess.ReadWrite);
-                fs.SetLength(fs.Length - 1);
+                fs.SetLength(fs.Length - 2);
                 fs.Close();
 
-                MyJSON = "," + strResultJson;
-                File.AppendAllText(strPath, MyJSON + "]");
+                MyJSON = "," + "\n" + strResultJson;
+                File.AppendAllText(strPath, MyJSON + "\n]");
                 Console.WriteLine("The file exists.");
             }
             else if (!File.Exists(strPath))
             {
-                MyJSON = "[" + strResultJson + "]";
+                MyJSON = "[" + "\n" + strResultJson + " ]";
                 File.WriteAllText(strPath, MyJSON);
                 Console.WriteLine("The file doesn't exists.");
             }

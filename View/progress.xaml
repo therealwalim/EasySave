@@ -1,0 +1,27 @@
+﻿<Page x:Class="View.progress"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="progress">
+
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <Label Height="25" Content="Task Name" Margin="0,0,0,6"/>
+            <ProgressBar Width="410" Height="5" Value="20"/>
+            <Button Margin="20,0,10,0" Background="#FFF1C40F" BorderBrush="#FFF1C40F">
+                <materialDesign:PackIcon Kind="Pause"></materialDesign:PackIcon>
+            </Button>
+            <Button Margin="0,0,10,0" Background="#FFE74C3C" BorderBrush="#FFE74C3C">
+                <materialDesign:PackIcon Kind="Stop"></materialDesign:PackIcon>
+            </Button>
+            <Button Margin="0,0,10,0" BorderBrush="#FF2ECC71" Background="#FF2ECC71">
+                <materialDesign:PackIcon Kind="Play"></materialDesign:PackIcon>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>
