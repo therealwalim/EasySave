@@ -109,8 +109,11 @@ namespace ProjetPrograSys
             process.Start();
             //* Read the other one synchronously
             string output = process.StandardOutput.ReadToEnd();
-            Console.WriteLine(output);
-            process.WaitForExit();
+            using (StreamWriter file = new StreamWriter(@"D:\Resultat.txt", true))
+            {
+                file.WriteLine(output);
+            }
+                process.WaitForExit();
         }
     }
 }
