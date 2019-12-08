@@ -27,7 +27,7 @@ namespace CryptoSoft
                     Stopwatch stopwatch = Stopwatch.StartNew();
                     Encrypt(sourcePath, destinationPath, mode, key);
                     stopwatch.Stop();
-                    Console.WriteLine("Done ! Time elapsed: " + stopwatch.ElapsedMilliseconds + " ms.");
+                    Console.WriteLine(stopwatch.ElapsedMilliseconds + " ms.");
                     Console.WriteLine("");
                     Console.WriteLine("Press ENTER to continue.");
                     Console.ReadLine();
