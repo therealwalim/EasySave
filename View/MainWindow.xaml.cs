@@ -27,7 +27,6 @@ namespace View
         {
             InitializeComponent();
             Main.Content = new welcome();
-            Progress.Content = new progress();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -87,6 +86,16 @@ namespace View
             Main.Content = new welcome();
         }
 
-
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            if (progressdisplay.IsChecked ?? false)
+            {
+                Progress.Content = new progress();
+            }
+            else
+            {
+                Progress.Content = "";
+            }
+        }
     }
 }

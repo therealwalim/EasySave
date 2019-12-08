@@ -24,7 +24,6 @@
             <DockPanel MinWidth="212">
                 <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
                               DockPanel.Dock="Top"
-                              Height="5"
                               HorizontalAlignment="Right" Margin="16"
                               IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
                 <Menu>
@@ -60,7 +59,7 @@
                         <MenuItem Header="Encrypt a file" Click="MenuItem_Click_2"></MenuItem>
                     </MenuItem>
                     <Separator Width="150" HorizontalAlignment="Left"/>
-                    <CheckBox IsChecked="True" Style="{StaticResource MaterialDesignDarkCheckBox}" Content="Progress bar" />
+                    <CheckBox Click ="CheckBox_Click" x:Name="progressdisplay"  IsChecked="False" Style="{StaticResource MaterialDesignDarkCheckBox}" Content="Progress bar" />
                 </Menu>
             </DockPanel>
         </materialDesign:DrawerHost.LeftDrawerContent>
@@ -90,7 +89,7 @@
             </materialDesign:ColorZone>
 
             <Frame x:Name="Main" Grid.Row="1" NavigationUIVisibility="Hidden" Margin="-54,0,-41,84"/>
-            <Frame x:Name="Progress" Margin="0,337,0,0" Grid.Row="1"/>
+            <Frame x:Name="Progress" Margin="0,337,0,0" Grid.Row="1" NavigationUIVisibility="Hidden"/>
         </Grid>
     </materialDesign:DrawerHost>
 
