@@ -81,5 +81,10 @@ namespace View
         {
             Main.Content = new encrypt();
         }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new welcome();
+        }
     }
 }

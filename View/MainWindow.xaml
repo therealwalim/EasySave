@@ -37,6 +37,12 @@
                             <VirtualizingStackPanel />
                         </ItemsPanelTemplate>
                     </Menu.ItemsPanel>
+                    <MenuItem Header="Home" Click="MenuItem_Click_3">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="Home" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator Width="150" HorizontalAlignment="Left"/>
                     <MenuItem Header="Save">
                         <MenuItem.Icon>
                             <materialDesign:PackIcon Kind="ContentSave" />
