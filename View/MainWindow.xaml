@@ -24,6 +24,7 @@
             <DockPanel MinWidth="212">
                 <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" 
                               DockPanel.Dock="Top"
+                              Height="5"
                               HorizontalAlignment="Right" Margin="16"
                               IsChecked="{Binding ElementName=MenuToggleButton, Path=IsChecked, Mode=TwoWay}" />
                 <Menu>
@@ -58,6 +59,8 @@
                         </MenuItem.Icon>
                         <MenuItem Header="Encrypt a file" Click="MenuItem_Click_2"></MenuItem>
                     </MenuItem>
+                    <Separator Width="150" HorizontalAlignment="Left"/>
+                    <CheckBox IsChecked="True" Style="{StaticResource MaterialDesignDarkCheckBox}" Content="Progress bar" />
                 </Menu>
             </DockPanel>
         </materialDesign:DrawerHost.LeftDrawerContent>
