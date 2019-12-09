@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace ProjetPrograSys
 {
@@ -107,13 +108,16 @@ namespace ProjetPrograSys
             process.StartInfo.RedirectStandardOutput = true;
             //* Start process
             process.Start();
+            
             //* Read the other one synchronously
             string output = process.StandardOutput.ReadToEnd();
-            using (StreamWriter file = new StreamWriter(@"D:\Resultat.txt", true))
+            using (StreamWriter file = new StreamWriter(@"D:\Resultat.txt", false))
             {
-                file.WriteLine(output);
+                var resultString = Regex.Match(output, @"\d+").Value;
+                var Chaine = output.Substring(0, output.Length - "\n".Length);
+                file.WriteLine(resultString);
+                
             }
-                process.WaitForExit();
         }
     }
 }
