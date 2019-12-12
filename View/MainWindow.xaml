@@ -59,7 +59,7 @@
                         <MenuItem Header="Encrypt a file" Click="MenuItem_Click_2"></MenuItem>
                     </MenuItem>
                     <Separator Width="150" HorizontalAlignment="Left"/>
-                    <CheckBox Click ="CheckBox_Click" x:Name="progressdisplay"  IsChecked="False" Style="{StaticResource MaterialDesignDarkCheckBox}" Content="Progress bar" />
+                    <CheckBox Click ="CheckBox_Click" x:Name="progressdisplay" IsChecked="True" Style="{StaticResource MaterialDesignDarkCheckBox}" Content="Progress bar" />
                 </Menu>
             </DockPanel>
         </materialDesign:DrawerHost.LeftDrawerContent>
@@ -83,13 +83,13 @@
                     </Grid.ColumnDefinitions>
                     <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="False"
                                   x:Name="MenuToggleButton" Grid.Column="0" Grid.RowSpan="2"/>
-                    <Image Source="C:\Users\ASUS\Desktop\C# Repository\EasySave\assets\logo.png" Grid.RowSpan="2" Grid.Column="1" Margin="245,-27,280,-29" UseLayoutRounding="True" SnapsToDevicePixels="True" ></Image>
+                    <Image Source="C:\Users\ASUS\Desktop\C# Repository\EasySave\assets\logo-display.png" Grid.RowSpan="2" Grid.Column="1" Margin="245,-27,280,-29" UseLayoutRounding="True" SnapsToDevicePixels="True" ></Image>
                     <Button Content="{materialDesign:PackIcon Close}" HorizontalAlignment="Right" RenderTransformOrigin="15.494,0.531" Margin="0,2,0,3" Width="47" Grid.Column="1" Background="#FFE74C3C" BorderBrush="#FFE74C3C" Click="Button_Click" Grid.RowSpan="2"></Button>
                 </Grid>
             </materialDesign:ColorZone>
 
             <Frame x:Name="Main" Grid.Row="1" NavigationUIVisibility="Hidden" Margin="-54,0,-41,84"/>
-            <Frame x:Name="Progress" Margin="0,337,0,0" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+            <Frame IsEnabled="False" x:Name="Progress" Margin="0,337,0,0" Grid.Row="1" NavigationUIVisibility="Hidden"/>
         </Grid>
     </materialDesign:DrawerHost>
 

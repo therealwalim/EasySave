@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Win32;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace View
 {
@@ -23,10 +24,24 @@ namespace View
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
-            InitializeComponent();
-            Main.Content = new welcome();
+            bool onlyOneInstance = false;
+
+            using (System.Threading.Mutex mtx = new Mutex(true, "EasySave", out onlyOneInstance))
+            {
+                if (onlyOneInstance)
+                {
+                    InitializeComponent();
+                    Main.Content = new welcome();
+                    mtx.ReleaseMutex();
+                }
+                else
+                {
+                    System.Windows.MessageBox.Show("Application instance already running");
+                }
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

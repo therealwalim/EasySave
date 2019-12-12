@@ -101,23 +101,26 @@ namespace ProjetPrograSys
 
 
             //* Create your Process
-            Process process = new Process();
-            process.StartInfo.FileName = @"C:\Users\ASUS\Desktop\C# Repository\EasySave\CryptoSoft\bin\Debug\netcoreapp3.0\CryptoSoft.exe";
-            process.StartInfo.Arguments = @"source C:\Users\ASUS\Desktop\Root\testant.txt destination C:\Users\ASUS\Desktop\Backup\testant.txt";
-            process.StartInfo.UseShellExecute = false;
-            process.StartInfo.RedirectStandardOutput = true;
-            //* Start process
-            process.Start();
-            
+            //Process process = new Process();
+            //process.StartInfo.FileName = @"C:\Users\ASUS\Desktop\C# Repository\EasySave\CryptoSoft\bin\Debug\netcoreapp3.0\CryptoSoft.exe";
+            //process.StartInfo.Arguments = @"source C:\Users\ASUS\Desktop\Root\testant.txt destination C:\Users\ASUS\Desktop\Backup\testant.txt";
+            //process.StartInfo.UseShellExecute = false;
+            //process.StartInfo.RedirectStandardOutput = true;
+            ////* Start process
+            //process.Start();
+            var output = "18 ms\nlol";
+
             //* Read the other one synchronously
-            string output = process.StandardOutput.ReadToEnd();
-            using (StreamWriter file = new StreamWriter(@"D:\Resultat.txt", false))
-            {
-                var resultString = Regex.Match(output, @"\d+").Value;
-                var Chaine = output.Substring(0, output.Length - "\n".Length);
-                file.WriteLine(resultString);
-                
-            }
+            //string output = process.StandardOutput.ReadToEnd();
+            //using (StreamWriter file = new StreamWriter(@"D:\Resultat.txt", false))
+            //{
+            //    var resultString = Regex.Match(output, @"\d+").Value;
+            //    var Chaine = output.Substring(0, output.Length - "\n".Length);
+            //    file.WriteLine(resultString);
+
+            //}
+            var resultString = Regex.Match(output, @"\d+").Value;
+            Console.WriteLine(resultString);
         }
     }
 }
